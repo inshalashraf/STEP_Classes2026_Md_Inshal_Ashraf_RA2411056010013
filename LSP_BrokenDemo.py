@@ -1,18 +1,9 @@
-from BankAccount import BankAccount
-from FixedDepositAccount import FixedDepositAccount
+# Initial LSP test observation:
+# A list of Account objects contained a SavingsAccount and a FixedDepositAccount.
+# The withdrawal loop worked for the SavingsAccount but crashed on the FixedDepositAccount
+# because its withdraw() implementation raised UnsupportedOperationException.
+# This showed that FixedDepositAccount could not safely be substituted for Account
+# when the calling code assumed every Account supported withdrawal.
 
-
-def main():
-    accounts = [
-        BankAccount(201, "Ravi", 21, 5000, "Savings"),
-        FixedDepositAccount(202, "Aman", 25, 10000)
-    ]
-
-    print("Trying withdrawal from every Account:")
-    for account in accounts:
-        print("Withdrawing from", account.get_account_type())
-        account.withdraw(100)
-
-
-if __name__ == "__main__":
-    main()
+print("Observed crash: FixedDepositAccount withdrawal raised UnsupportedOperationException.")
+print("This was fixed by introducing the Withdrawable interface.")
