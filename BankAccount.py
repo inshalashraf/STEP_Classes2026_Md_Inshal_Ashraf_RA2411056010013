@@ -1,3 +1,12 @@
+# Reasons this class can change:
+# - Account rules change (deposit, withdrawal, balance or account status rules).
+# - Database changes (for example, changing MySQL or the way accounts are saved).
+# - Email/notification changes (for example, changing the SMTP service or message format).
+# - Transaction logging changes (for example, changing how transactions are recorded).
+# - Statement format changes (the way the account statement is printed).
+# - PIN/security rules change.
+# - Interest calculation rules change.
+
 class BankAccount:
 
     def __init__(self, account_number, name, age, balance, account_type):
