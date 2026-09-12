@@ -1,0 +1,4 @@
+For the Salary Account requirement, I only had to add new files for SalaryAccount and SalaryInterestPolicy, and update Main to use them.
+No existing interest policy class was changed.
+The new account type and its interest calculation are added through new classes instead of editing the old policy classes.
+The Bank also uses a notification service passed through its constructor, so the notification implementation can be swapped without changing Bank.py.
