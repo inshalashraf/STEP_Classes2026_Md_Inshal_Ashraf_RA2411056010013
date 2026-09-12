@@ -1,0 +1,4 @@
+FixedDepositAccount should not implement Withdrawable because it cannot honestly support early withdrawal.
+Making it implement Withdrawable and throwing an exception would violate the LSP substitution rule: a subtype must be usable wherever its base type or contract is expected without breaking the caller's assumptions.
+The withdrawal loop now accepts only Withdrawable accounts, so SavingsAccount and CurrentAccount can be safely substituted there.
+FixedDepositAccount remains an Account, but it does not promise a withdrawal operation that it cannot fulfill.
